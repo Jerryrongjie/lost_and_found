@@ -1,5 +1,23 @@
-# Lost and Found 南苑寻物 APP
+# 南苑寻物 APP
 
+Title | content
+---|---
+Target release | 2019/12/10
+Epic | 南苑寻物
+Document status | 已基本完成
+Document owner | [叶荣杰](https://github.com/Jerryrongjie)
+Designer | [叶荣杰](https://github.com/Jerryrongjie)
+Developer | [叶荣杰](https://github.com/Jerryrongjie)
+QA | [叶荣杰](https://github.com/Jerryrongjie)
+
+## 产品介绍
+南苑寻物是一款立足于中山大学南方学院的校园服务APP，可以帮助用户进行失物招领。
+
+拾遗者可以通过APP的拍照上传物品功能，识别物品的分类，填写简单的物品描述、位置信息和联系方式，将物品上传至遗失物数据库。
+而失主则可以在APP数据库中根据不同的分类寻找自己的物品。失主还可以通过上传物品的照片、淘宝图片或者日常照片的细节截图对数据库中的物品进行比对，快速地找到相似度高的相关物品，减少搜索的时间。
+南苑寻物会严格的辨别用户身份，以避免冒领的情况发生。
+
+---
 ## PRD 价值主张设计
 ### PRD1.加值宣言
 - 加值宣言：Azure认知服务可以帮助用户生成物品的信息，减少人工输入描述的时间成本，也减少了模糊描述、错误描述产生的不良影响。
