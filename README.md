@@ -24,6 +24,67 @@ QA | [叶荣杰](https://github.com/Jerryrongjie)
 
 
 ---
+
+## API使用对比
+
+＃ | API商家 | API类别 | 描述 | 不同点
+---|---|---|---|---
+1 | Azure | 自定义视觉 |Azure控制台可以很清晰的看到图片对比的相似度，对于上传图片、优化模型有很大的便捷性，可以通过可视化界面进行操作，不需要写代码。 | Azure 生成的标签均为英文，需要额外的翻译步骤，对于国内用户不友好。
+2 | Baidu | 图像搜索 | Baidu图像搜索功能也可以通过可视化界面上传图片库，不需要使用代码。但是图片搜索与数据库中的图片进行对比时，仍需要编写代码，同时没有明确的相似匹配度数据 | 数据不够清晰，对图片拍摄角度光线要求比较高，没有提供相似度的数据
+
+## [百度API代码示例](https://github.com/Jerryrongjie/lost_and_found/blob/master/_baidu.ipynb)
+
+- 相似图片搜索—入库
+```
+# encoding:utf-8
+import requests
+import base64
+
+'''
+相似图检索—入库
+'''
+
+request_url = "https://aip.baidubce.com/rest/2.0/image-classify/v1/realtime_search/similar/add"
+# 二进制方式打开图片文件
+f = open('[本地文件]', 'rb')
+img = base64.b64encode(f.read())
+
+params = {"brief":"{\"name\":\"小度\", \"id\":\"1\"}","image":img,"tags":"1,1"}
+access_token = '[调用鉴权接口获取的token]'
+request_url = request_url + "?access_token=" + access_token
+headers = {'content-type': 'application/x-www-form-urlencoded'}
+response = requests.post(request_url, data=params, headers=headers)
+if response:
+    print (response.json())
+```
+
+- 相似图片搜索—检索
+```
+# encoding:utf-8
+
+import requests
+import base64
+
+'''
+相似图检索—检索
+'''
+
+request_url = "https://aip.baidubce.com/rest/2.0/image-classify/v1/realtime_search/similar/search"
+# 二进制方式打开图片文件
+f = open('C:/Users/kedre/Desktop/API/相似库/校园卡.jpg', 'rb')
+img = base64.b64encode(f.read())
+
+params = {"image":img,"pn":200,"rn":100}
+access_token = '[调用鉴权接口获取的token]'
+request_url = request_url + "?access_token=" + access_token
+headers = {'content-type': 'application/x-www-form-urlencoded'}
+response = requests.post(request_url, data=params, headers=headers)
+if response:
+    print (response.json())
+```
+
+
+
 ## PRD 价值主张设计
 ### PRD1.加值宣言
 - 加值宣言：
