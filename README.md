@@ -47,7 +47,7 @@ QA | [叶荣杰](https://github.com/Jerryrongjie)
 1 | Azure | 自定义视觉 |Azure控制台可以很清晰的看到图片对比的相似度，对于上传图片、优化模型有很大的便捷性，可以通过可视化界面进行操作，不需要写代码。 | Azure 生成的标签均为英文，需要额外的翻译步骤，对于国内用户不友好。
 2 | Baidu | 图像搜索 | Baidu图像搜索功能也可以通过可视化界面上传图片库，不需要使用代码。但是图片搜索与数据库中的图片进行对比时，仍需要编写代码，同时没有明确的相似匹配度数据 | 数据不够清晰，对图片拍摄角度光线要求比较高，没有提供相似度的数据
 
-## [百度API代码示例](https://github.com/Jerryrongjie/lost_and_found/blob/master/_baidu.ipynb)
+## [百度 图像搜索代码示例](https://github.com/Jerryrongjie/lost_and_found/blob/master/_baidu.ipynb)
 
 - 相似图片搜索—入库
 ```
@@ -98,7 +98,33 @@ if response:
     print (response.json())
 ```
 
+## [Azure 计算机视觉代码示例](https://github.com/Jerryrongjie/lost_and_found/blob/master/_Azure.ipynb)
 
+```
+import http.client, urllib.request, urllib.parse, urllib.error, base64
+import requests
+import json
+
+headers = {
+    # Request headers
+    'Content-Type': 'application/json',
+    'Ocp-Apim-Subscription-Key': 'xxx', # 改成自己的key
+}
+
+params = urllib.parse.urlencode({
+    # Request parameters
+    'visualFeatures': 'Categories,Tags',
+    'language': 'zh',
+})
+
+url = 'https://xxx/vision/v2.0/analyze' # 改成自己的站点
+image_url = 'http://inews.gtimg.com/newsapp_ls/0/10966517164_294195/0.jpg' # 可以修改图片的地址
+
+response = requests.post(url, params=params, headers=headers, json={"url": image_url})
+vison = response.json()
+
+print(vison)
+```
 
 ## PRD 价值主张设计
 ### PRD1.加值宣言
