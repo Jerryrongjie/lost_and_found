@@ -4,7 +4,7 @@ Title | content
 ---|---
 Target release | 2019/12/10
 Epic | 南苑寻物
-Document status | 进行中
+Document status | 基本完成
 Document owner | [叶荣杰](https://github.com/Jerryrongjie)
 Designer | [叶荣杰](https://github.com/Jerryrongjie)
 Developer | [叶荣杰](https://github.com/Jerryrongjie)
@@ -47,7 +47,7 @@ QA | [叶荣杰](https://github.com/Jerryrongjie)
 1 | Azure | 自定义视觉 |Azure控制台可以很清晰的看到图片对比的相似度，对于上传图片、优化模型有很大的便捷性，可以通过可视化界面进行操作，不需要写代码。 | Azure 生成的标签均为英文，需要额外的翻译步骤，对于国内用户不友好。
 2 | Baidu | 图像搜索 | Baidu图像搜索功能也可以通过可视化界面上传图片库，不需要使用代码。但是图片搜索与数据库中的图片进行对比时，仍需要编写代码，同时没有明确的相似匹配度数据 | 数据不够清晰，对图片拍摄角度光线要求比较高，没有提供相似度的数据
 
-## [百度 图像搜索代码示例](https://github.com/Jerryrongjie/lost_and_found/blob/master/_baidu.ipynb)
+## [百度 图像搜索代码示例](https://github.com/Jerryrongjie/lost_and_found/blob/master/_Azure.ipynb)
 
 - 相似图片搜索—入库
 ```
@@ -129,15 +129,18 @@ print(vison)
 ## PRD 价值主张设计
 ### PRD1.加值宣言
 - 加值宣言：
-  - Azure 自定义视觉：可以通过拍照帮助用户生成物品的信息，减少人工输入描述的时间成本，也减少了模糊描述、错误描述产生的不良影响。
-  - Azure 计算机视觉：失主可以通过上传照片，在数据库中找到匹配度较高的物品，减少翻失物库的时间。
+  - Azure 计算机视觉：可以通过拍照帮助用户生成物品的信息，减少人工输入描述的时间成本，也减少了模糊描述、错误描述产生的不良影响。
+  - 百度 图像搜索：失主可以通过上传照片，在数据库中找到匹配度较高的物品，减少翻失物库的时间。
 
 
 ### PRD2.核心价值
-- 核心价值宣言：通过自定义视觉API识别物品类型，简化描述物品的步骤；通过计算机视觉API，使失主可以通过自己物品的照片或图片与数据库中的物品进行快速匹配。
+- 核心价值宣言：通过计算机视觉API识别物品类型，简化描述物品的步骤；通过图像搜索API，使失主可以通过自己物品的照片或图片与数据库中的物品进行快速匹配。
 
 ### PRD3.核心价值与用户痛点
-- 用户痛点宣言：丢失物数据库解决了寻找失物具有延迟性的痛点，数据匹配和物品识别让上传物品和寻找物品的时间大大减少。
+- 用户痛点宣言：
+    - 丢失物数据库解决了寻找失物具有延迟性的痛点，数据匹配和物品识别让上传物品和寻找物品的时间大大减少。
+    - 降低寻找丢失物的时间成本和社交成本。
+    - 减少寻找失主的麻烦和心理负罪感。
 
 ### PRD4.人工智能概率性与用户痛点 3%
 - AI概率性考量：自定义图像识别存在对物品分类错误的情况，捡到遗失物的用户可以根据识别结果判断是否自行修改物品类别。
@@ -217,5 +220,10 @@ print(vison)
 ### API4.加分项
 使用复杂度：用了2个以上机器学习与人工智能的API之输入及输出
 
-- 百度：图像搜素API
-- Azure：计算机视觉API
+- 百度：[图像搜素API](https://github.com/Jerryrongjie/lost_and_found/blob/master/_Azure.ipynb)
+    - 输入：物品图片入库
+    - 输出：物品图片检索
+    
+- Azure：[计算机视觉API](https://github.com/Jerryrongjie/lost_and_found/blob/master/_Azure.ipynb)
+    - 输入：图片url
+    - 输出：图片类别、图片标签
