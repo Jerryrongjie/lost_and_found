@@ -10,6 +10,8 @@ Designer | [叶荣杰](https://github.com/Jerryrongjie)
 Developer | [叶荣杰](https://github.com/Jerryrongjie)
 QA | [叶荣杰](https://github.com/Jerryrongjie)
 
+### 20x20 项目介绍 [链接](https://github.com/Jerryrongjie/lost_and_found/blob/master/20x20.pptx)
+
 ## 产品介绍
 南苑寻物是一款立足于中山大学南方学院的校园服务APP，可以帮助用户进行失物招领。通过Azure认知服务和百度智能云，为寻物降低困难。
 
