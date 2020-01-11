@@ -249,7 +249,7 @@ print(vison)
 ### API4.加分项
 使用复杂度：用了2个以上机器学习与人工智能的API之输入及输出
 
-- 百度：[图像搜素API](https://github.com/Jerryrongjie/lost_and_found/blob/master/_Azure.ipynb)
+- 百度：[图像搜素API](https://github.com/Jerryrongjie/lost_and_found/blob/master/_baidu.ipynb)
     - 输入：物品图片入库
     - 输出：物品图片检索
     
